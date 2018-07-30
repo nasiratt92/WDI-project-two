@@ -9,7 +9,10 @@ Movie.collection.drop();
 Movie
   .create([
     {filmName: 'Kung fu Panda',
-      quotes: ['Yesterday is history, tomorrow is a mystery, but today is a gift. That is why it is called present.'],
+      quotes: [
+        'Yesterday is history, tomorrow is a mystery, but today is a gift. That is why it is called present.',
+        'Stop calling me Panda-eyes!'
+      ],
       coverPic: 'https://m.media-amazon.com/images/M/MV5BODJkZTZhMWItMDI3Yy00ZWZlLTk4NjQtOTI1ZjU5NjBjZTVjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SY1000_CR0,0,689,1000_AL_.jpg',
       releaseYear: 2008,
       IMDbRating: 7.6,

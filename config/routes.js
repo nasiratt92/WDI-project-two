@@ -15,4 +15,7 @@ router.get('/about', (req, res) => res.render('pages/_about'));
 router.route('/movies')
   .get(movieController.index);
 
+router.route('/movies/:id')
+  .get(movieController.show);
+
 module.exports = router;

@@ -1,7 +1,7 @@
 <h1>This page shows all movies</h1>
 <% movies.forEach(movie => {%>
-<a href="movies/<%= movie.id %>">
-  <img src="<%= movie.coverPic %>" alt="">
+<a href="/movies/<%= movie.id %>">
+  <img src="<%= movie.coverPic %>" alt="movie.filmName">
 </a>
 <h2 class= "subtitle is-2"><%= movie.filmName %></h2>
 <h2 class= "subtitle is-2"><%= movie.releaseYear %></h2>
