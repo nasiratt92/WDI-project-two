@@ -1,0 +1,22 @@
+{
+  "name": "project-2",
+  "version": "1.0.0",
+  "description": "for GA",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nasiratt92/WDI-project-two.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nasiratt92/WDI-project-two/issues"
+  },
+  "homepage": "https://github.com/nasiratt92/WDI-project-two#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
