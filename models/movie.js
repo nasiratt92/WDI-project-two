@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const movieSchema = new mongoose.Schema({
   filmName: {type: String, required: true},
-  quotes: String,
+  charactorName: String,
+  quote: String,
   coverPic: String,
   releaseYear: Number,
   IMDbRating: Number,

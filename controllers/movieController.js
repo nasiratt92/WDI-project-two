@@ -46,7 +46,10 @@ function moviesRecent(req, res) {
     .find()
     .sort({ createdAt: -1 }) // sort descending (newest first)
     .limit(3)
-    .then(movies => res.render('pages/_home', { movies }))
+    .then(movies => {
+      console.log(movies);
+      res.render('pages/_home', { movies });
+    })
     .catch(err => console.log(err));
 }
 
