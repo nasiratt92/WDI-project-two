@@ -13,8 +13,18 @@ function moviesShow(req, res) {
     .findById(req.params.id)
     .then(movie => res.render('movies/show', { movie }));
 }
+function moviesNew(req, res) {
+  res.render('movies/new');
+}
+function moviesCreate(req, res){
+  Movie
+    .create(req.body)
+    .then(() => res.redirect('/movies'));
+}
 
 module.exports = {
   show: moviesShow,
-  index: moviesIndex
+  index: moviesIndex,
+  new: moviesNew,
+  create: moviesCreate
 };

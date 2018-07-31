@@ -18,4 +18,10 @@ router.route('/movies')
 router.route('/movies/:id')
   .get(movieController.show);
 
+router.route('movies/new')
+  .get(movieController.new);
+
+router.route('movies/:id')
+  .post(movieController.create);
+
 module.exports = router;
