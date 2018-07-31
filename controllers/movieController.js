@@ -17,16 +17,29 @@ function moviesNew(req, res) {
   res.render('movies/new');
 }
 function moviesCreate(req, res){
-  console.log('req.body is empty!!', req.body);
   Movie
     .create(req.body)
     .then(() => res.redirect('/movies'))
     .catch(err => console.log('Error creating movie', err));
+}
+function moviesEdit(req, res){
+  Movie
+    .findById(req.params.id)
+    .then(movie => res.render('movies/edit', {movie}))
+    .catch(err => console.log('Error editing movie', err));
+}
+function moviesUpdate(req, res){
+  Movie
+    .findByIdAndUpdate(req.params.id, req.body)
+    .then(movie => res.redirect(`/movies/${movie.id}`))
+    .catch(err => console.log('Error updating movie', err));
 }
 
 module.exports = {
   show: moviesShow,
   index: moviesIndex,
   new: moviesNew,
-  create: moviesCreate
+  create: moviesCreate,
+  edit: moviesEdit,
+  update: moviesUpdate
 };

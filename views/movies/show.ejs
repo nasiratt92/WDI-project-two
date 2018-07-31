@@ -6,10 +6,12 @@
 <h2 class= "subtitle is-2">Release Year: <%= movie.releaseYear %></h2>
 <h2 class= "subtitle is-2">IMDb Rating: <%= movie.IMDbRating %> /10</h2>
 <p class= "subtitle is-2"><%= movie.generes %></p>
-
-
+<a class="button is-info" href="/movies/<%= movie.id %>/edit">Edit </a>
+<form action="/movies/<%= movie.album %>" method="post"> <button class="button is-danger" type="button" name="button">Delete</button>😵
+  <input type="hidden" name="_method" value="Delete">
+</form>
 <% movie.quotes.forEach(quote => { %>
   <h2 class= "subtitle is-2"><%= quote %></h2>
   <p>Express your love</p>
-  <button class="button is-info is-inverted">👍 </button>
+  <button class="button is-info">👍 </button>
 <% }) %>

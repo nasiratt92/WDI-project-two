@@ -19,6 +19,14 @@ router.route('/movies')
 router.route('/movies/new')
   .get(movieController.new);
 
+router.route('/movies/:id/edit')
+  .get(movieController.edit);
+
+router.route('/movies/:id')
+  .get(movieController.show)
+  .post(movieController.update);
+
+
 router.route('/movies/:id')
   .get(movieController.show);
 
