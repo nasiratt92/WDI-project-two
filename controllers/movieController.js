@@ -41,6 +41,15 @@ function moviesDelete(req, res){
     .catch(err => console.log('Error deleting movie', err));
 }
 
+function moviesRecent(req, res) {
+  Movie
+    .find()
+    .sort({ createdAt: -1 }) // sort descending (newest first)
+    .limit(3)
+    .then(movies => res.render('pages/_home', { movies }))
+    .catch(err => console.log(err));
+}
+
 module.exports = {
   show: moviesShow,
   index: moviesIndex,
@@ -48,5 +57,6 @@ module.exports = {
   create: moviesCreate,
   edit: moviesEdit,
   update: moviesUpdate,
-  delete: moviesDelete
+  delete: moviesDelete,
+  recent: moviesRecent
 };

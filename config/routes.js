@@ -9,7 +9,9 @@ const movieController = require('../controllers/movieController');
 
 
 // routes
-router.get('/', (req, res) => res.render('pages/_home'));
+router.route('/')
+  .get(movieController.recent);
+
 router.get('/about', (req, res) => res.render('pages/_about'));
 
 router.route('/movies')
@@ -24,14 +26,10 @@ router.route('/movies/:id/edit')
 
 router.route('/movies/:id')
   .get(movieController.show)
-  .post(movieController.update);
+  .put(movieController.update)
+  .delete(movieController.delete);
 
 
-router.route('/movies/:id')
-  .get(movieController.show);
-
-router.route('/movies/:id')
-  .get(movieController.delete);
 // I think I need a post and get here
 
 
