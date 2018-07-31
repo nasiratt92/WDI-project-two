@@ -30,7 +30,11 @@ router.route('/movies/:id')
 router.route('/movies/:id')
   .get(movieController.show);
 
+router.route('/movies/:id')
+  .get(movieController.delete);
+// I think I need a post and get here
 
-// router.route('movies/:id')
+
+
 
 module.exports = router;

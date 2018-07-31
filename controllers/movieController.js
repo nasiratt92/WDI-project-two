@@ -34,6 +34,12 @@ function moviesUpdate(req, res){
     .then(movie => res.redirect(`/movies/${movie.id}`))
     .catch(err => console.log('Error updating movie', err));
 }
+function moviesDelete(req, res){
+  Movie
+    .findByIdAndDelete(req.params.id)
+    .then(() => res.redirect('/movies'))
+    .catch(err => console.log('Error deleting movie', err));
+}
 
 module.exports = {
   show: moviesShow,
@@ -41,5 +47,6 @@ module.exports = {
   new: moviesNew,
   create: moviesCreate,
   edit: moviesEdit,
-  update: moviesUpdate
+  update: moviesUpdate,
+  delete: moviesDelete
 };
