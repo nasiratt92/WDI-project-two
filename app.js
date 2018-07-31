@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
@@ -16,7 +17,7 @@ app.use(expressLayouts);
 app.set('views', `${__dirname}/views`); // This is the default
 
 app.use(morgan('dev'));
-
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(router);
 
 app.listen(port, () => console.log(`Express is listening on port ${port}`));

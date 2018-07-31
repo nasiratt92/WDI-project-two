@@ -17,9 +17,11 @@ function moviesNew(req, res) {
   res.render('movies/new');
 }
 function moviesCreate(req, res){
+  console.log('req.body is empty!!', req.body);
   Movie
     .create(req.body)
-    .then(() => res.redirect('/movies'));
+    .then(() => res.redirect('/movies'))
+    .catch(err => console.log('Error creating movie', err));
 }
 
 module.exports = {
