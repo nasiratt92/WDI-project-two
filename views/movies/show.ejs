@@ -9,11 +9,40 @@
     <h2 class= "subtitle is-2">IMDb Rating: <%= movie.IMDbRating %> /10</h2>
     <h4 class= "subtitle is-2">Genres : <%= movie.genres %></h4>
     <h2 class= "subtitle is-2">Famous quote(s): </h2>
-    <h2 class="subtitle is 2" ><% movie.quotes.forEach(quote => { %>
-      <span style><%= quote.quote %></span>(
-        <span><%= quote.charactorName %>)</span>
-        <hr>
-        <% }) %> </p>
+
+    <% movie.quotes.forEach(quote => { %>
+
+      <article class="media">
+      <div class="media-content">
+      <div class="content">
+      <p>
+      <strong><%= quote.charactorName %></strong>
+      <br>
+      <%= quote.quote %>
+      </p>
+      </div>
+      <nav class="level is-mobile">
+      <div class="level-left">
+      <a class="level-item">
+    <small><a>Like</a> · <a>Reply</a> · 3 hrs</small>
+      </a>
+      </div>
+      </nav>
+      </div>
+      <div class="media-right">
+      <form action="/movies/<%= movie.id %>/quotes/<%= quote.id %>" method="POST">
+      <button class="delete"></button>
+        <input type="hidden" name="_method" value="DELETE">
+      </form>
+      </div>
+      </article>
+
+      <hr>
+      <% }) %> </p>
+
+
+
+
 
         <span class="buttons">
           <a class="button is-small is-info is-rounded" href="/movies/<%= movie.id %>/quotes/new">Add Quote </a>

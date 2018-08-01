@@ -40,6 +40,8 @@ router.route('/movies/:id/quotes/new')
 router.route('/movies/:id/quotes')
   .post(quoteController.create);
 
+router.route('/movies/:id/quotes/:quoteId')
+  .delete(quoteController.delete);
 
 // I think I need a post and get here
 

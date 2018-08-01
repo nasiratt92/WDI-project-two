@@ -26,12 +26,25 @@ function quotesCreate(req, res) {
       return movie.save();
     })
     .then(() => res.redirect(`/movies/${req.params.id}`));
-
 }
-
+function quotesDelete(req, res, next) {
+  Movie
+    .findById(req.params.id)
+    .then(movie => {
+      console.log(movie);
+      const commentIdToDelete = req.params.quoteId;
+      // this should have a check here to check the user is the one who commented in the first place
+      movie.quotes = movie.quotes.filter(quote => quote.id !== commentIdToDelete
+      );
+      return movie.save();
+    })
+    .then(movie => res.redirect(`/movies/${movie.id}`))
+    .catch(next);
+}
 
 module.exports = {
   index: quotesIndex,
   new: quotesNew,
-  create: quotesCreate
+  create: quotesCreate,
+  delete: quotesDelete
 };
