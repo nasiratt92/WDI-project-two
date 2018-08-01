@@ -12,15 +12,26 @@ function quotesIndex(req, res) {
     })
     .catch(err => console.log('Error collecting quotes', err));
 }
+function quotesNew(req, res) {
+  const filmId = req.params.id;
+  res.render('quotes/new', {filmId});
+}
+function quotesCreate(req, res) {
+  console.log(req.params.id);
+  Movie
+    .findById(req.params.id)
+    .then(movie =>  {
+      console.log(movie);
+      movie.quotes.push(req.body);
+      return movie.save();
+    })
+    .then(() => res.redirect(`/movies/${req.params.id}`));
 
+}
 
-
-
-//       const quotes = movies.(movie => movie.quote);
-//       res.render('movies/quotes', { quotes });
-//     });
-// }
 
 module.exports = {
-  index: quotesIndex
+  index: quotesIndex,
+  new: quotesNew,
+  create: quotesCreate
 };

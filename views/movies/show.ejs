@@ -7,18 +7,21 @@
     <h2 class= "subtitle is-2">Movie Name: <%= movie.filmName %></h2>
     <h2 class= "subtitle is-2">Release Year: <%= movie.releaseYear %></h2>
     <h2 class= "subtitle is-2">IMDb Rating: <%= movie.IMDbRating %> /10</h2>
+    <h4 class= "subtitle is-2">Genres : <%= movie.genres %></h4>
     <h2 class= "subtitle is-2">Famous quote(s): </h2>
     <h2 class="subtitle is 2" ><% movie.quotes.forEach(quote => { %>
       <span style><%= quote.quote %></span>(
         <span><%= quote.charactorName %>)</span>
+        <hr>
         <% }) %> </p>
 
-        <p class= "subtitle is-2"><%= movie.generes %></p>
         <span class="buttons">
-          <button class="button is-small is-success">👍 </button>
-          <a class="button is-small is-info" href="/movies/<%= movie.id %>/edit">Edit </a>
+          <a class="button is-small is-info is-rounded" href="/movies/<%= movie.id %>/quotes/new">Add Quote </a>
+          </form>
+          <button class="button is-small is-success is-rounded">👍 </button>
+          <a class="button is-small is-info is-rounded" href="/movies/<%= movie.id %>/edit">Edit </a>
           <form action="/movies/<%= movie.id %>" method="POST">
-            <button class="button is-small is-danger" title="Dont Do it! 😵">Delete</button>
+            <button class="button is-small is-danger is-rounded" title="Dont Do it! 😵">Delete</button>
             <input type="hidden" name="_method" value="DELETE">
           </form>
         </span>
