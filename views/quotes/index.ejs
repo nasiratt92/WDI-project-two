@@ -1,0 +1,14 @@
+<h1 class="subtitle is-2">This page shows all qoutes</h1>
+
+<% quotes.forEach(quote => { %>
+  <div class="columns">
+    <div class="column is-11">
+  <p>
+<%= quote.quote %>
+ <span class="commenter" > (<%= quote.charactorName %></span>) </p>
+<button title="Express your love" class="button is-info is-small">❤️ </button>
+</p>
+<hr>
+    </div>
+  </div>
+ <% }); %>

@@ -3,6 +3,7 @@ const router = express.Router();
 
 // Controllers
 const movieController = require('../controllers/movieController');
+const quoteController = require('../controllers/quoteController');
 
 
 
@@ -17,6 +18,10 @@ router.get('/about', (req, res) => res.render('pages/_about'));
 router.route('/movies')
   .get(movieController.index)
   .post(movieController.create);
+
+router.route('/quotes')
+  .get(quoteController.index);
+// .post(movieController.create);
 
 router.route('/movies/new')
   .get(movieController.new);

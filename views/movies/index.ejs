@@ -1,8 +1,18 @@
 <h1>This page shows all movies</h1>
+<div class="container">
+
+
+<div class="columns is-multiline">
 <% movies.forEach(movie => {%>
+<div class="column is-3">
 <a href="/movies/<%= movie.id %>">
   <img src="<%= movie.coverPic %>" alt="movie.filmName">
 </a>
+
+
 <h2 class= "subtitle is-2"> <%= movie.filmName %> </h2>
 <h2 class= "subtitle is-2"><%= movie.releaseYear %></h2>
+</div>
 <% }) %>
+</div>
+</div>
