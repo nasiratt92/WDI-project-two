@@ -4,7 +4,7 @@
   "description": "for GA",
   "main": "app.js",
   "scripts": {
-    "start": "node index",
+    "start": "node app",
     "refresh": "node db/seeds",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
