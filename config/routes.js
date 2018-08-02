@@ -15,6 +15,8 @@ router.route('/')
 
 router.get('/about', (req, res) => res.render('pages/_about'));
 
+router.get('/signup', (req, res) => res.render('registrations/new'));
+
 router.route('/movies')
   .get(movieController.index)
   .post(movieController.create);

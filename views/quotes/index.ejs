@@ -1,13 +1,29 @@
-<h1 class="subtitle is-2">This page shows all qoutes</h1>
+<section  class="hero is-small is-dark is-bold">
+  <div  class="hero-body">
+    <div style="width: 100%;" class="container">
+      <h1 class="title">
 
+        <h1 style="padding-bottom: 50px;" class="title is-1 is-white">Quotes</h1>
+      </h1>
+      <h2 class="subtitle is-6">
+        <p>Here is our full quotes collection</p>
+
+    </div>
+    <hr>
+  </div>
+</section>
 <% quotes.forEach(quote => { %>
   <div class="columns">
     <div class="column is-11">
   <p>
 <%= quote.quote %>
  <span class="commenter" > (<%= quote.charactorName %></span>) </p>
-<button title="Express your love" class="button is-info is-small">❤️ </button>
 </p>
+<span class="buttons">
+    <button class="button is-small is-primer is-rounded" title="Dont Do it! 😵">Like</button>
+
+
+</span>
 <hr>
     </div>
   </div>

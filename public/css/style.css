@@ -1,0 +1,13 @@
+nav {
+  margin-bottom: 50px;
+  height: 112px;
+}
+
+nav img {
+  min-height: 100%;
+  border-radius: 50%;
+}
+
+footer {
+  margin-top: 50px;
+}

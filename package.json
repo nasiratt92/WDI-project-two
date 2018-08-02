@@ -4,6 +4,8 @@
   "description": "for GA",
   "main": "app.js",
   "scripts": {
+    "start": "node index",
+    "refresh": "node db/seed",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

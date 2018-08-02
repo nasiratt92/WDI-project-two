@@ -12,6 +12,9 @@ const { port, DB_URI } = require('./config/environment');
 
 mongoose.connect(DB_URI);
 
+// Static files
+app.use(express.static(`${__dirname}/public`));
+
 // Layouts
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
