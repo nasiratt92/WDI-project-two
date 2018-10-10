@@ -16,6 +16,7 @@ A on-line platform designed for movie fans to share and celebrate movie quotes. 
 * Express.js
 * EJS (Embedded JavaScript)
 * Git
+* Trello
 * MongoDB
 * Mongoose
 * Heroku
@@ -40,31 +41,36 @@ A blogging platform that meets the following minimum criteria:
 
 * Be deployed online and accessible to the public.
 
-***
-### Challenges
-As this was my first ever JavaScript endeavour, I found the project as a whole a challenge. I had to adopt to learn JavaScript coding skills within the code (e.g. declaring global variable and functions) and learn coder's skills outside of the code (e.g. mind mapping coding solutions and pre planning code to be written).
+---
 
+### Challenges
+As this was my first ever full stack project and we had covered user registration, password hashing, password salting, JSON token and user authentication, I simply was not able to implement these into my project.
+### Wins
+The wins for this project were that I was successfully created a RESTful EJS full stack web app and I worked on a project which was in tune with my personally interests.
 
 ***
 ### Favourite feature
 
-As much as I enjoyed going through my many code challenges throughout this project (like adding Simpsons nelson sound or Discos Stue's 80's dance off gif), my favourite achievement has to be deployment of Super Mario sounds throughout the gameplay. This was achieved through two blocks of code in the JavaScript file.
-
-
-So throughout the game development I discovered the need to create a separate play sound function which would serve useful application throughout the code.
+I enjoyed going through my many code challenges throughout the project. My favourite piece of code is how the quotes index is generated. The quotes is an array  embedded under each movie model i.e. multiple quotes per movie. So in order to display an index of all the quotes embedded under all the movies we iterate over movies and per movie use .reduce and .concat methods to send the collection of quotes to the index page.  
 ```js
-function playSound(soundFile) {
-  const soundEffect = new Audio();
-  soundEffect.src = soundFile;
-  soundEffect.play();
-  return soundEffect;
+function quotesIndex(req, res) {
+  Movie
+    .find() // All the movies!
+    .then(movies =>  {
+      const quotes =  movies.reduce((arr, movie) => {
+        return arr.concat(movie.quotes);
+      },[]);
+
+      res.render('quotes/index', {quotes});
+    })
+    .catch(err => console.log('Error collecting quotes', err));
 }
 ```
 
 ## Future features
 There are plenty of features which given the time I would love to add to this game such as
 * Complete the mailing list Db model
-* Add user authentication
+* Complete user authentication
 * Add carrousel on landing page of latest quotations
 * Better user flow
 * Better wireframes
